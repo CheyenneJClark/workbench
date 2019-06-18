@@ -1,0 +1,159 @@
+/*========================================================================
+
+	CSS Reset
+
+========================================================================*/
+*{
+	box-sizing: border-box;
+	font: inherit;
+	margin: 0;
+	padding: 0;
+}
+/*========================================================================
+
+	Colors
+
+========================================================================*/
+:root{
+	--primary-background: #333;
+	--primary-background-light: #555;
+	--primary-background-lighter: #777;
+	--primary-background-lightest: #999;
+
+	--primary-accent: #ef6c00;
+	--primary-accent-light: #ff9d3f;
+	--primary-accent-dark: #b53d00;
+
+	--secondary-accent: #1976d2;
+	--secondary-accent-light: #63a4ff;
+	--secondary-accent-dark: #004ba0;
+
+	background-color: var(--primary-background-lighter);
+}
+
+/*========================================================================
+
+	Typography
+
+========================================================================*/
+html{
+	--text-color-dark: #000;
+	--text-color-light: #fff;
+	--text-color-accent: var(--primary-accent);
+
+	--primary-font: 'Open Sans', sans-serif;
+	--accent-font: 'Josefin Sans', sans-serif;
+
+    font-family: var(--primary-font);
+	font-size: 16px;
+	line-height: 1.5;
+	color: var(--text-color-light);
+}
+
+h1, h2, h3, h4, h5, h6{
+	font-family: var(--accent-font);
+}
+h1{
+	font-size: 1.8rem;
+}
+
+h2{
+	font-size: 1.6rem;
+}
+
+h3{
+	font-size: 1.4rem;
+}
+
+header li a{
+    font-size: 1.2rem;
+	font-weight: bold;
+}
+
+p{
+	font-size: 1.2rem;
+}
+
+header .logo{
+	font-family: var(--accent-font);
+	font-size: 3rem;
+	font-weight: bold;
+	color: var(--text-color-accent);
+	text-decoration: none;
+}
+
+nav a{
+	color: var(--text-color-light);
+	text-decoration: none;
+}
+nav a:hover{
+	color: var(--text-color-accent);
+	font-weight: 800;
+}
+main{
+	max-width: 800px;
+}
+text{
+	font-size: .7rem;
+}
+/*========================================================================
+
+	Layout
+
+========================================================================*/
+body{
+	padding: 1rem;
+}
+header{
+	margin-bottom: 1rem;
+}
+main section{
+	margin: 2rem;
+}
+/*========================================================================
+
+	Headers
+
+========================================================================*/
+
+
+
+/*========================================================================
+
+	Navigation
+
+========================================================================*/
+nav li{
+	display: inline-block;
+	padding: .5rem;
+}
+
+.color-swatch {
+	height: 16.5rem;
+	width: 10rem;
+}
+.color-palette > svg{
+	margin: 1.5rem 1.5rem 0 1.5rem;
+}
+
+/*========================================================================
+
+	Main
+
+========================================================================*/
+
+
+section figure{
+	display: inline-block;
+}
+.typefaces h4 em{
+	font-weight: bold;
+}
+.typefaces h4:last-child em{
+	font-family: var(--primary-font);
+}
+/*========================================================================
+
+	Footer
+
+========================================================================*/
