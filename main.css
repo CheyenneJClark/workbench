@@ -11,7 +11,7 @@
 }
 /*========================================================================
 
-	Colors
+	Variables
 
 ========================================================================*/
 :root{
@@ -28,7 +28,22 @@
 	--secondary-accent-light: #63a4ff;
 	--secondary-accent-dark: #004ba0;
 
-	background-color: var(--primary-background-lighter);
+	--text-color-dark: #000;
+	--text-color-light: #fff;
+	--text-color-accent: var(--primary-accent);
+
+	--text-xxlarge: 2.2rem;
+	--text-xlarge: 1.8rem;
+	--text-large: 1.4rem;
+	--text-medium: 1rem;
+	--text-small: .8rem;
+	--text-xsmall: .6rem;
+
+
+	--primary-font: 'Open Sans', sans-serif;
+	--accent-font: 'Josefin Sans', sans-serif;
+
+	--margin-standard: 2rem;
 }
 
 /*========================================================================
@@ -37,15 +52,8 @@
 
 ========================================================================*/
 html{
-	--text-color-dark: #000;
-	--text-color-light: #fff;
-	--text-color-accent: var(--primary-accent);
-
-	--primary-font: 'Open Sans', sans-serif;
-	--accent-font: 'Josefin Sans', sans-serif;
 
     font-family: var(--primary-font);
-	font-size: 16px;
 	line-height: 1.5;
 	color: var(--text-color-light);
 }
@@ -53,16 +61,30 @@ html{
 h1, h2, h3, h4, h5, h6{
 	font-family: var(--accent-font);
 }
+
 h1{
-	font-size: 1.8rem;
+	font-size: var(--text-xxlarge);
 }
 
 h2{
-	font-size: 1.6rem;
+	font-size: var(--text-xlarge);
 }
 
 h3{
-	font-size: 1.4rem;
+	font-size: var(--text-large);
+}
+
+h4{
+	font-size: var(--text-medium);
+	text-decoration: underline;
+}
+
+h5{
+	font-size: var(--text-small);
+}
+
+h6{
+	font-size: var(--text-xsmall);
 }
 
 header li a{
@@ -71,52 +93,59 @@ header li a{
 }
 
 p{
-	font-size: 1.2rem;
+	font-size: var(--text-medium);
+	margin-bottom: var(--margin-standard);
 }
 
-header .logo{
-	font-family: var(--accent-font);
-	font-size: 3rem;
-	font-weight: bold;
-	color: var(--text-color-accent);
-	text-decoration: none;
+strong{
+	font-size: var(--text-medium);
+	font-weight: 700;
 }
 
-nav a{
-	color: var(--text-color-light);
-	text-decoration: none;
+em{
+	font-size: var(--text-medium);
+	font-weight: 400;
+	font-style: italic;
 }
-nav a:hover{
-	color: var(--text-color-accent);
-	font-weight: 800;
-}
-main{
-	max-width: 800px;
-}
+
 text{
 	font-size: .7rem;
+	fill: var(--text-color-light);
 }
+
 /*========================================================================
 
 	Layout
 
 ========================================================================*/
 body{
+	background-color: var(--primary-background-lighter);
 	padding: 1rem;
 }
+
 header{
-	margin-bottom: 1rem;
+	margin-bottom: var(--margin-standard);
 }
-main section{
-	margin: 2rem;
+
+main{
+	max-width: 768px;
 }
+
+h2{
+	margin: 0 var(--margin-standard);
+}
+
 /*========================================================================
 
 	Headers
 
 ========================================================================*/
-
-
+header .logo{
+	font-family: var(--accent-font);
+	font-size: 3rem;
+	color: var(--text-color-accent);
+	text-decoration: none;
+}
 
 /*========================================================================
 
@@ -128,12 +157,14 @@ nav li{
 	padding: .5rem;
 }
 
-.color-swatch {
-	height: 16.5rem;
-	width: 10rem;
+nav a{
+	color: var(--text-color-light);
+	text-decoration: none;
 }
-.color-palette > svg{
-	margin: 1.5rem 1.5rem 0 1.5rem;
+
+nav a:hover{
+	color: var(--text-color-accent);
+	font-weight: 700;
 }
 
 /*========================================================================
@@ -141,19 +172,128 @@ nav li{
 	Main
 
 ========================================================================*/
+main section{
+	margin: 0 var(--margin-standard);
+}
 
+/*========================================================================
 
+	Examples
+
+========================================================================*/
 section figure{
 	display: inline-block;
 }
-.typefaces h4 em{
-	font-weight: bold;
+
+.typefaces p{
+	margin-left: var(--margin-standard);
 }
-.typefaces h4:last-child em{
+
+.color-swatch {
+	height: 16.5rem;
+	width: 10rem;
+}
+.color-palette svg{
+	margin: 1.5rem 0;
+}
+
+.typefaces p em{
+	font-weight: 700;
+}
+
+.typefaces p:last-child em{
 	font-family: var(--primary-font);
 }
+
+table{
+	border-collapse: collapse;
+	margin: var(--margin-standard) auto;
+}
+
+th{
+	font-size: 0;
+	line-height: 0;
+	width: 10rem;
+}
+
+th:first-child{
+	width: 20rem;
+}
+
+td{
+	border-bottom: 1px solid white;
+}
+
+tr:last-child td{
+	border-bottom: none;
+}
+
+.page-title-row td:first-child{
+	font-size: var(--text-xxlarge);
+	font-family: var(--accent-font);
+}
+
+.section-title-row td:first-child{
+	font-size: var(--text-xlarge);
+	font-family: var(--accent-font);
+}
+
+.subsection-title-row td:first-child{
+	font-size: var(--text-large);
+	font-family: var(--accent-font);
+}
+
+.inner-subsection-row td:first-child{
+	font-size: var(--text-medium);
+	font-family: var(--accent-font);
+}
+
+.featured-text-row td:first-child{
+	font-size: var(--text-large);
+	font-family: var(--accent-font);
+	font-weight: 600;
+	font-style: italic;
+}
+
+.heavy-text-row td:first-child{
+	font-size: var(--text-medium);
+	font-weight: 700;
+}
+
+.emphasized-text-row td:first-child{
+	font-size: var(--text-medium);
+	font-weight: 400;
+	font-style: italic;
+}
+
+.featured-text{
+	font-size: var(--text-large);
+	font-family: var(--accent-font);
+	font-weight: 600;
+	font-style: italic;
+}
+
+ol li{
+	margin-left: var(--margin-standard);
+}
+
+ol ol li{
+	margin-left: var(--margin-standard);
+}
+
+ul li{
+	margin-left: var(--margin-standard);
+}
+
+ul ul li{
+	margin-left: var(--margin-standard);
+}
+
 /*========================================================================
 
 	Footer
 
 ========================================================================*/
+footer p{
+	font-size: var(--text-small);
+}
