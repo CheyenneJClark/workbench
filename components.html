@@ -51,16 +51,31 @@
     <section>
     <details>
       <summary>Hammers</summary>
-      <div><p>Hammers are good for pounding in nails.</p></div>
+      <div>
+          <p>Hammers are good for pounding in nails.</p>
+      </div>
     </details>
     <details>
       <summary>Screwdrivers</summary>
-      <div><p>Screwdrivers are good to fastening screws.</p></div>
+      <div>
+          <p>Screwdrivers are good to fastening screws.</p>
+      </div>
     </details>
     <details>
       <summary>Wrenches</summary>
-      <div><p>Wrenches are good for tightening bolts.</p></div>
+      <div>
+          <p>Wrenches are good for tightening bolts.</p>
+      </div>
     </details>
+  </section>
+
+  <h2>Modal Dialog</h2>
+  <section>
+    <button id="open-modal" type="button">Open Modal</button>
+    <dialog id="modal-demo">
+      <h3>Modal</h3>
+      <p>This is what the modal looks!</p>
+    </dialog>
   </section>
 
   </main>
@@ -87,5 +102,26 @@
 
 
   </footer>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function(){
+
+  const modal = document.querySelector('dialog');
+  const open = document.getElementById('open-modal');
+
+  open.addEventListener('click', () => {
+  modal.showModal();
+  });
+
+  modal.addEventListener('click', event => {
+  if (event.target === modal) {
+  modal.close('cancelled');
+  }
+  });
+
+  });
+  </script>
+
+
 </body>
 </html>

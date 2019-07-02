@@ -179,7 +179,29 @@ nav a:hover{
 
 ========================================================================*/
 main section{
-	margin: 0 var(--margin-standard);
+	margin: 0 var(--margin-standard) var(--margin-standard);
+}
+table{
+	border-collapse: collapse;
+	margin: var(--margin-standard) auto;
+}
+
+th{
+	font-size: 0;
+	line-height: 0;
+	width: 10rem;
+}
+
+th:first-child{
+	width: 20rem;
+}
+
+td{
+	border-bottom: 1px solid white;
+}
+
+tr:last-child td{
+	border-bottom: none;
 }
 
 /*========================================================================
@@ -209,29 +231,6 @@ section figure{
 
 .typefaces p:last-child em{
 	font-family: var(--primary-font);
-}
-
-table{
-	border-collapse: collapse;
-	margin: var(--margin-standard) auto;
-}
-
-th{
-	font-size: 0;
-	line-height: 0;
-	width: 10rem;
-}
-
-th:first-child{
-	width: 20rem;
-}
-
-td{
-	border-bottom: 1px solid white;
-}
-
-tr:last-child td{
-	border-bottom: none;
 }
 
 .page-title-row td:first-child{
@@ -356,14 +355,56 @@ details{
 	border-bottom: 2px solid white;
 }
 details div{
-  padding: 1rem var(--margin-standard);
+  padding: 0 var(--margin-standard);
 	box-shadow: inset 0 2px 0 rgba(255, 255, 255);
 }
 summary{
 	font: var(--text-large)/1.5 var(--accent-font);
+
+  cursor: pointer;
+	outline: none;
 }
 
+dialog{
+	min-width: 30rem;
+	margin: 0 auto;
+	padding: var(--margin-standard);
+	border-radius: 30px;
+	border: 0;
+	box-shadow: 0 .2rem 0 var(--primary-background-lightest);
+}
 
+dialog::backdrop{
+	background: linear-gradient(0deg, rgba(	181, 61, 0,.7)0%, rgba(51, 51, 51,.7) 25%);
+}
+
+dialog[open] {
+	animation: expand .3s ease-in .3s;
+	animation-fill-mode: forwards;
+	opacity: 0;
+
+}
+
+@keyframes expand {
+
+		0% {
+			opacity: 0;
+			transform: scale(0, 0);
+		}
+
+		75% {
+			transform: scale(1.1, 1.1);
+		}
+
+		100% {
+			opacity: 1;
+			transform: scale(1, 1);
+
+		}
+
+	}
+
+}
 /*========================================================================
 
 	Footer
