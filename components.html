@@ -49,25 +49,25 @@
     </section>
     <h2>Accordion</h2>
     <section>
-    <details>
-      <summary>Hammers</summary>
-      <div>
-          <p>Hammers are good for pounding in nails.</p>
-      </div>
-    </details>
-    <details>
-      <summary>Screwdrivers</summary>
-      <div>
-          <p>Screwdrivers are good to fastening screws.</p>
-      </div>
-    </details>
-    <details>
-      <summary>Wrenches</summary>
-      <div>
-          <p>Wrenches are good for tightening bolts.</p>
-      </div>
-    </details>
-  </section>
+      <details>
+        <summary>Hammers</summary>
+        <div>
+            <p>Hammers are good for pounding in nails.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Screwdrivers</summary>
+        <div>
+            <p>Screwdrivers are good to fastening screws.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Wrenches</summary>
+        <div>
+            <p>Wrenches are good for tightening bolts.</p>
+        </div>
+      </details>
+    </section>
 
   <h2>Modal Dialog</h2>
   <section>
@@ -81,22 +81,29 @@
   <h2>Form Inputs</h2>
   <section>
     <form action="#">
-    <label for="text-input-default">Label</input>
-    <input type="text" id="text-input-default" name="text-input-default" placeholder="Default Text Input" required>
+      <label for="text-input-default">Label</label>
+      <input type="text" id="text-input-default" name="text-input-default" placeholder="Default Text Input">
 
-    <label for="textarea-default">Label(optional)</label>
-    <textarea id="textarea-default" name="textarea-defualt" placeholder="Default Textarea"></textarea>
+      <label for="text-input-default-error">Label</label>
+      <input type="text" id="text-input-default-error" name="text-input-default" placeholder="Text Input Error" class="error" required>
 
-    <label for="select-default">Label</label>
-    <select id="select-default" name="select-default">
-      <option disabled hidden selected>Please Select</option>
-      <option>Option 1</option>
-      <option>Option 2</option>
-      <option>Option 3</option>
-    </select>
+      <label for="text-input-default-disabled">Label</label>
+      <input type="text" id="text-input-default-disabled" name="text-input-default" placeholder="Default Text Disabled" disabled>
 
-    <input type="submit" id="submit-button-default" class="button-link secondary">
-    <aside>Click Submit to see error state!</aside>
+      <label for="textarea-default">Label(optional)</label>
+      <textarea id="textarea-default" name="textarea-defualt" placeholder="Default Textarea"></textarea>
+
+      <label for="select-default">Label</label>
+      <select id="select-default" name="select-default">
+        <option disabled hidden selected>Please Select</option>
+        <option>Option 1</option>
+        <option>Option 2</option>
+        <option>Option 3</option>
+      </select>
+
+      <input type="submit" id="submit-button-default" class="button-link secondary">
+      <aside>Click Submit to see error state!</aside>
+    </form>
 
   </section>
   </main>

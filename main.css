@@ -53,7 +53,7 @@
 ========================================================================*/
 html{
 
-    font-family: var(--primary-font);
+  font-family: var(--primary-font);
 	line-height: 1.5;
 	color: var(--text-color-light);
 }
@@ -140,19 +140,17 @@ h2{
 
 ========================================================================*/
 .button-link{
-	color: var(--text-color-light);
-	font: var(--text-medium)/1.5 var(--accent-font);
-	text-decoration: none;
-	display: inline-block;
-
 	background-color: var(--primary-accent);
 	border: 2px var(--text-color-light) solid ;
-	border-radius: 30px;
+	border-radius: 1.5rem;
 	box-shadow: 0 .2rem 0 var(--primary-background-light);
-	transition: background-color 0.5s ease;
-
-	padding: .5rem 1.5rem;
+	color: var(--text-color-light);
+	display: inline-block;
+	font: var(--text-medium)/1.5 var(--accent-font);
 	margin: .5rem;
+	padding: .5rem 1.5rem;
+	text-decoration: none;
+	transition: background-color 0.5s ease;
 }
 
 .button-link:hover, .button-link:focus{
@@ -166,6 +164,7 @@ h2{
 }
 
 .hero-button-link{
+	border-radius: 2rem;
 	font: var(--text-large)/1.5 var(--accent-font);
 }
 
@@ -207,10 +206,11 @@ header{
 	border-bottom: .5rem solid var(--secondary-accent);
 	box-shadow: 0 .2rem 0 var(--primary-background-light);
 }
+
 header .logo{
+	color: var(--text-color-accent);
 	font-family: var(--accent-font);
 	font-size: 3rem;
-	color: var(--text-color-accent);
 	margin: var(--margin-standard);
 	text-decoration: none;
 }
@@ -337,49 +337,83 @@ dialog[open] {
 		}
 
 }
+
+/*========================================================================
+
+	Forms
+
+========================================================================*/
 label{
 	font-family: var(--accent-font);
 }
 
 input:not([type=submit]), textarea, select {
-	border-radius: 30px;
 	border: 2px solid white;
+	border-radius: 1rem;
 	display: block;
-
 	font-family: var(--primary-font);
-
 	margin-bottom: calc(var(--margin-standard)/2);
 	min-width: 25rem;
 	padding-left: .5rem;
-
 	transition: border 0.5s ease;
 	-webkit-appearance: none;
 }
+
+input[type=submit]{
+	background-color: var(--secondary-accent);
+	border: 2px var(--text-color-light) solid ;
+	border-radius: 1.5rem;
+	box-shadow: 0 .2rem 0 var(--primary-background-light);
+	color: var(--text-color-light);
+	display: inline-block;
+	font: var(--text-medium)/1.5 var(--accent-font);
+	margin: .5rem;
+	padding: .5rem 1.5rem;
+	text-decoration: none;
+	transition: background-color 0.5s ease;
+}
+
 select{
 	min-width: 15rem;
 }
+
 input:not([type=submit]):focus, textarea:focus, select:focus {
 	border: 2px solid var(--secondary-accent);
+	box-shadow: inset 0 -.1rem 0 #111;
 	outline: none;
 	transition: border 0.5s ease;
+	transition: box-shadow 0.5s ease;
 }
+
 input::placeholder, textarea::placeholder, option:disabled{
 	color: var(--primary-background-lightest);
 	font-family: var(--primary-font);
 	font-style: italic;
 }
-input[required]:focus:invalid{
-	border: 2px solid var(--secondary-accent);
-	transition: border 0.5s ease;
+
+input.error{
+	border: 2px solid var(--primary-accent);
 }
+
+input.error:focus{
+	border: 2px solid var(--primary-accent);
+}
+
+input[disabled]{
+	background-color: var(--primary-background-lightest);
+	border: 2px solid var(--primary-background-light);
+	cursor: not-allowed;
+	padding-left: .5rem;
+}
+
+input[disabled]::placeholder{
+	color: var(--primary-background-light);
+}
+
 textarea{
 	border-radius: 10px;
+	resize: none;
 }
-/*========================================================================
-
-	Media Query
-
-========================================================================*/
 
 @media all and (max-width: 699px){
 	input:not([type=submit]), textarea{
