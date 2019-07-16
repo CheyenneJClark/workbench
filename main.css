@@ -43,6 +43,10 @@
 	--primary-font: 'Open Sans', sans-serif;
 	--accent-font: 'Josefin Sans', sans-serif;
 
+	--error-color: darkred;
+	--success-color: darkgreen;
+	--warning-color: darkgoldenrod;
+
 	--margin-standard: 2rem;
 }
 
@@ -64,10 +68,16 @@ h1, h2, h3, h4, h5, h6{
 
 h1{
 	font-size: var(--text-xxlarge);
+	text-shadow: 0 .2rem 0 var(--primary-background);
 }
 
 h2{
 	font-size: var(--text-xlarge);
+	border-bottom: 2px solid var(--primary-accent);
+	box-shadow: 0 0.1rem 0 var(--primary-background-light);
+  margin: 0 0 .5rem 0;
+  padding-left: .5rem;
+	width: 100%;
 }
 
 h3{
@@ -130,89 +140,33 @@ main{
 	max-width: 768px;
 }
 
-h2{
-	margin: 0 var(--margin-standard);
-}
-
 /*========================================================================
 
-	Button Styles
+	Page Headers
 
 ========================================================================*/
-.button-link{
-	background-color: var(--primary-accent);
-	border: 2px var(--text-color-light) solid ;
-	border-radius: 1.5rem;
-	box-shadow: 0 .2rem 0 var(--primary-background-light);
-	color: var(--text-color-light);
-	display: inline-block;
-	font: var(--text-medium)/1.5 var(--accent-font);
-	margin: .5rem;
-	padding: .5rem 1.5rem;
-	text-decoration: none;
-	transition: background-color 0.5s ease;
-}
-
-.button-link:hover, .button-link:focus{
-	transition: background-color 0.5s ease;
-	background-color: var(--primary-accent-dark);
-	box-shadow: 0 0 0 var(--primary-background-light);
-}
-
-.button-link:active{
-	background-color: var(--primary-accent-light);
-}
-
-.hero-button-link{
-	border-radius: 2rem;
-	font: var(--text-large)/1.5 var(--accent-font);
-}
-
-.ghost-button-link{
-	background-color: transparent;
-}
-
-.button-link.secondary {
-	--primary-accent: var(--secondary-accent);
-}
-
-.button-link.secondary:hover, .button-link.secondary:focus {
-	--primary-accent-dark: var(--secondary-accent-dark);
-}
-
-.button-link.secondary:active{
-	background-color: var(--secondary-accent-light);
-}
-
-.button-link.tertiary {
-	--primary-accent: var(--primary-background-light);
-}
-
-.button-link.tertiary:hover, .button-link.tertiary:focus {
-	--primary-accent-dark: var(--primary-background);
-}
-
-.button-link.tertiary:active{
-	background-color: var(--primary-background-lightest);
-}
-
-/*========================================================================
-
-	Headers
-
-========================================================================*/
-header{
+body > header{
+	align-items: baseline;
 	background-color: var(--primary-background);
-	border-bottom: .5rem solid var(--secondary-accent);
+	border-bottom: .5rem solid var(--primary-accent);
 	box-shadow: 0 .2rem 0 var(--primary-background-light);
+	display: flex;
+	justify-content: space-evenly;
 }
 
 header .logo{
 	color: var(--text-color-accent);
 	font-family: var(--accent-font);
 	font-size: 3rem;
-	margin: var(--margin-standard);
 	text-decoration: none;
+	text-shadow: 0 .2rem 0 var(--primary-background-light);
+}
+@media all and (max-width: 600px){
+  header{
+		align-items: center;
+		flex-direction: column;
+	}
+
 }
 
 /*========================================================================
@@ -220,10 +174,16 @@ header .logo{
 	Navigation
 
 ========================================================================*/
+
+nav ul{
+
+
+}
+
 nav li{
 	display: inline-block;
-	padding: .5rem;
 }
+
 
 nav a{
 	color: var(--text-color-light);
@@ -231,8 +191,13 @@ nav a{
 }
 
 nav a:hover{
-	color: var(--text-color-accent);
+	color: var(--secondary-accent);
 	font-weight: 700;
+}
+@media all and (max-width: 600px){
+	nav ul li{
+	display: block;
+ }
 }
 
 /*========================================================================
@@ -336,8 +301,96 @@ dialog[open] {
 
 		}
 
+
+}
+@keyframes breathe {
+
+		0% {
+			transform: scale(1, 1);
+		}
+
+		75% {
+			transform: scale(1.1, 1.1);
+		}
+
+		100% {
+
+			transform: scale(1, 1);
+
+		}
+
+
+}
+/*========================================================================
+
+	Footer
+
+========================================================================*/
+footer p{
+	font-size: var(--text-small);
+	margin-top: var(--margin-standard);
+}
+/*========================================================================
+
+	Button Styles
+
+========================================================================*/
+.button-link{
+	background-color: var(--primary-accent);
+	border: 2px var(--text-color-light) solid ;
+	border-radius: 1.5rem;
+	box-shadow: 0 .2rem 0 var(--primary-background-light);
+	color: var(--text-color-light);
+	display: inline-block;
+	font: var(--text-medium)/1.5 var(--accent-font);
+	margin: .5rem;
+	padding: .5rem 1.5rem;
+	text-decoration: none;
+	transition: background-color 0.5s ease;
 }
 
+.button-link:hover, .button-link:focus{
+	transition: background-color 0.5s ease;
+	background-color: var(--primary-accent-dark);
+	box-shadow: 0 0 0 var(--primary-background-light);
+}
+
+.button-link:active{
+	background-color: var(--primary-accent-light);
+}
+
+.hero-button-link{
+	border-radius: 2rem;
+	font: var(--text-large)/1.5 var(--accent-font);
+}
+
+.ghost-button-link{
+	background-color: transparent;
+}
+
+.button-link.secondary {
+	--primary-accent: var(--secondary-accent);
+}
+
+.button-link.secondary:hover, .button-link.secondary:focus {
+	--primary-accent-dark: var(--secondary-accent-dark);
+}
+
+.button-link.secondary:active{
+	background-color: var(--secondary-accent-light);
+}
+
+.button-link.tertiary {
+	--primary-accent: var(--primary-background-light);
+}
+
+.button-link.tertiary:hover, .button-link.tertiary:focus {
+	--primary-accent-dark: var(--primary-background);
+}
+
+.button-link.tertiary:active{
+	background-color: var(--primary-background-lightest);
+}
 /*========================================================================
 
 	Forms
@@ -415,11 +468,164 @@ textarea{
 	resize: none;
 }
 
-@media all and (max-width: 699px){
+@media all and (max-width: 600px){
 	input:not([type=submit]), textarea{
 		min-width: 20rem;
 	}
 }
+/*========================================================================
+
+	Information Cards
+
+========================================================================*/
+*[class*="information-card-"]{
+	background-color: var(--primary-background-lightest);
+	border-radius: 3rem;
+	box-shadow: 0 .2rem 0 var(--primary-background-light);
+	margin-bottom: var(--margin-standard);
+	padding: var(--margin-standard);
+}
+
+*[class*="information-card-"] img{
+	border: 2px solid var(--text-color-light);
+	border-radius: 2rem 0 0 0;
+	margin: 0 var(--margin-standard) 0 0;
+	width: 20rem;
+}
+
+*[class*="information-card-"] section{
+	margin: 0;
+}
+
+*[class*="information-card-"] p{
+	margin: 0;
+}
+.information-card-article{
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+}
+
+.information-card-article > section:first-of-type{
+	align-items: flex-end;
+	border-bottom: 2px solid var(--primary-accent);
+	box-shadow: 0 2px 0 var(--primary-background-lighter);
+	display: flex;
+	justify-content: flex-start;
+	padding-bottom: var(--margin-standard);
+	width: 100%;
+}
+
+.information-card-profile{
+	align-items: center;
+	display: flex;
+}
+
+.information-card-profile p{
+	word-wrap: break-word;
+}
+
+article.information-card-profile img{
+	border-radius: 2rem 0 0 2rem;
+}
+
+@media all and (max-width: 600px){
+
+	*[class*="information-card-"] img{
+		border-radius: 2rem 2rem 0 0;
+		margin: 0 0 var(--margin-standard) 0;
+		width: 20rem;
+	}
+
+	article.information-card-profile img{
+		border-radius: 2rem 2rem 0 0;
+		margin: 0 0 var(--margin-standard) 0;
+		width: 20rem;
+	}
+
+	.information-card-article > section:first-of-type{
+		flex-direction: column;
+		align-items: center;
+	}
+
+	*[class*="information-card-"]{
+		flex-direction: column;
+	}
+}
+/*========================================================================
+
+	Notifications
+
+========================================================================*/
+.notification{
+	background-color: var(--text-color-light);
+	border-radius: 3rem;
+	box-shadow: 0 .2rem 0 var(--primary-background-light);
+	margin-bottom: var(--margin-standard);
+	padding: calc(var(--margin-standard)/2);
+	max-width: 30rem;
+}
+.notification{
+	align-items: center;
+	display: flex;
+}
+.notification svg{
+	width: 3rem;
+	height: 3rem;
+}
+.notification:hover{
+	animation: breathe .5s ease-out .5s;
+}
+.error h3{
+	border-left: 2px solid var(--error-color);
+	color: var(--error-color);
+	margin-left: 1rem;
+	padding-left: 1rem;
+}
+.error svg line {
+	stroke: var(--error-color);
+}
+
+.error svg path{
+	fill: var(--error-color);
+}
+.warning h3{
+	border-left: 2px solid var(--warning-color);
+	color: var(--warning-color);
+	margin-left: 1rem;
+	padding-left: 1rem;
+}
+.warning svg line{
+	stroke: var(--warning-color);
+}
+.warning svg path{
+	fill: var(--warning-color);
+}
+.success h3{
+	border-left: 2px solid var(--success-color);
+	color: var(--success-color);
+	margin-left: 1rem;
+	padding-left: 1rem;
+}
+.success svg line{
+	stroke: var(--success-color);
+}
+.success svg path{
+	fill: var(--success-color);
+}
+.information h3{
+	border-left: 2px solid var(--secondary-accent);
+	color: var(--secondary-accent);
+	margin-left: 1rem;
+	padding-left: 1rem;
+}
+.information svg line{
+	stroke: var(--secondary-accent);
+}
+.information svg path{
+	fill: var(--secondary-accent);
+}
+
 /*========================================================================
 
 	Examples
@@ -492,13 +698,4 @@ section figure{
 	font-family: var(--accent-font);
 	font-weight: 600;
 	font-style: italic;
-}
-/*========================================================================
-
-	Footer
-
-========================================================================*/
-footer p{
-	font-size: var(--text-small);
-	margin-top: var(--margin-standard);
 }
