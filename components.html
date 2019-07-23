@@ -93,9 +93,31 @@
       <label for="textarea-default">Label(optional)</label>
       <textarea id="textarea-default" name="textarea-defualt" placeholder="Default Textarea"></textarea>
 
+      <label for="textarea-default-error">Label</label>
+      <textarea id="textarea-default-error" name="textarea-defualt-error" placeholder="Default Textarea Error" class="error" required></textarea>
+
+      <label for="textarea-default">Label</label>
+      <textarea id="textarea-default-disabled" name="textarea-defualt-disabled" placeholder="Default Textarea Disabled" disabled></textarea>
+
       <label for="select-default">Label</label>
       <select id="select-default" name="select-default">
-        <option disabled hidden selected>Please Select</option>
+        <option disabled hidden selected>Select Default</option>
+        <option>Option 1</option>
+        <option>Option 2</option>
+        <option>Option 3</option>
+      </select>
+
+      <label for="select-default-error">Label</label>
+      <select id="select-default-error" name="select-default" class="error" required>
+        <option disabled hidden selected>Select Error</option>
+        <option>Option 1</option>
+        <option>Option 2</option>
+        <option>Option 3</option>
+      </select>
+
+      <label for="select-default-disabled">Label</label>
+      <select id="select-default-disabled" name="select-default" disabled>
+        <option disabled hidden selected>Select Disabled</option>
         <option>Option 1</option>
         <option>Option 2</option>
         <option>Option 3</option>
@@ -111,21 +133,21 @@
 
   <figure>
     <section class="information-card-article">
-      <section>
+      <div>
         <img src="blueprint-and-tools.jpg" alt="Image of tools and a blueprint"/>
 
-        <section>
+        <div>
           <h3>Tooling Around</h3>
           <p>by Ron Swanson</p>
           <p>August 1, 2011</p>
-        </section>
-      </section>
+        </div>
+      </div>
 
-      <section>
+      <div>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
         <a href="#" class="button-link">Read</a>
-      </section>
+      </div>
     </section>
 
     <article class="information-card-profile">
@@ -142,52 +164,40 @@
   <figure>
     <div class="notification error">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 951 951">
-      <defs>
-        <style>.cls-1{fill:none;stroke-linecap:round;stroke-miterlimit:10;stroke-width:50px;}</style>
-      </defs>
       <title>Error</title>
           <path d="M475.5,50A425.63,425.63,0,0,1,641.11,867.58,425.62,425.62,0,0,1,309.89,83.42,422.73,422.73,0,0,1,475.5,50m0-50C212.89,0,0,212.89,0,475.5S212.89,951,475.5,951,951,738.11,951,475.5,738.11,0,475.5,0Z"/>
-          <line class="cls-1" x1="237" y1="244" x2="724" y2="714"/>
-          <line class="cls-1" x1="725" y1="244" x2="238" y2="714"/>
+          <line class="icon" x1="237" y1="244" x2="724" y2="714"/>
+          <line class="icon" x1="725" y1="244" x2="238" y2="714"/>
     </svg>
     <h3>Error! This is the notifcation for errors!</h3>
     </div>
 
     <div class="notification warning">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 951 951">
-        <defs>
-          <style>.cls-1{fill:#fff;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:50px;}</style>
-        </defs>
         <title>Warning</title>
             <path d="M475.5,50A425.63,425.63,0,0,1,641.11,867.58,425.62,425.62,0,0,1,309.89,83.42,422.73,422.73,0,0,1,475.5,50m0-50C212.89,0,0,212.89,0,475.5S212.89,951,475.5,951,951,738.11,951,475.5,738.11,0,475.5,0Z"/>
-            <line class="cls-1" x1="481.38" y1="212" x2="482.15" y2="574.6"/>
-            <line class="cls-1" x1="482" y1="658" x2="482" y2="693"/>
+            <line class="icon" x1="481.38" y1="212" x2="482.15" y2="574.6"/>
+            <line class="icon" x1="482" y1="658" x2="482" y2="693"/>
       </svg>
       <h3>Warning! This is the notifcation for warnings!</h3>
     </div>
 
     <div class="notification success">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 951 951">
-        <defs>
-          <style>.cls-1{fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:50px;}</style>
-        </defs>
         <title>Success</title>
               <path d="M475.5,50A425.63,425.63,0,0,1,641.11,867.58,425.62,425.62,0,0,1,309.89,83.42,422.73,422.73,0,0,1,475.5,50m0-50C212.89,0,0,212.89,0,475.5S212.89,951,475.5,951,951,738.11,951,475.5,738.11,0,475.5,0Z"/>
-              <line class="cls-1" x1="280" y1="548" x2="456" y2="714"/>
-              <line class="cls-1" x1="709" y1="288" x2="456" y2="714"/>
+              <line class="icon" x1="280" y1="548" x2="456" y2="714"/>
+              <line class="icon" x1="709" y1="288" x2="456" y2="714"/>
         </svg>
         <h3>Success! This is the notifcation for success!</h3>
     </div>
 
     <div class="notification information">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 951 951">
-        <defs>
-          <style>.cls-1{fill:#fff;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:50px;}</style>
-        </defs>
         <title>Information</title>
             <path d="M475.5,50A425.63,425.63,0,0,1,641.11,867.58,425.62,425.62,0,0,1,309.89,83.42,422.73,422.73,0,0,1,475.5,50m0-50C212.89,0,0,212.89,0,475.5S212.89,951,475.5,951,951,738.11,951,475.5,738.11,0,475.5,0Z"/>
-            <line class="cls-1" x1="475" y1="741" x2="476" y2="358"/>
-            <line class="cls-1" x1="475" y1="279" x2="475" y2="244"/>
+            <line class="icon" x1="475" y1="741" x2="476" y2="358"/>
+            <line class="icon" x1="475" y1="279" x2="475" y2="244"/>
       </svg>
       <h3>Information! This is the notifcation for information!</h3>
     </div>

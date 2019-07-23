@@ -136,8 +136,34 @@ header{
 	margin-bottom: var(--margin-standard);
 }
 
-main{
-	max-width: 768px;
+.grid-container{
+	display: grid;
+	grid-gap: 1rem;
+	grid-template-columns: repeat(2, 1fr);
+	margin: 1rem auto;
+	max-width: 1200px;
+
+}
+
+.grid-container section:first-child{
+	grid-column-start: 1;
+	grid-column-end: 3;
+}
+
+.grid-container.card-people{
+	grid-template-columns: repeat(auto-fill, minmax(35rem, 1fr));
+}
+
+
+@media all and (max-width: 1000px){
+	.grid-container.card-article{
+	 	grid-template-columns: repeat(1, 1fr);
+		}
+}
+@media all and (max-width: 700px){
+	.grid-container.card-people{
+	 	grid-template-columns: repeat(1, 1fr);
+		}
 }
 
 /*========================================================================
@@ -292,7 +318,7 @@ dialog[open] {
 		}
 
 		75% {
-			transform: scale(1.1, 1.1);
+			transform: scale(1.01, 1.01);
 		}
 
 		100% {
@@ -444,7 +470,7 @@ input::placeholder, textarea::placeholder, option:disabled{
 	font-style: italic;
 }
 
-input.error{
+input.error, textarea.error, select.error{
 	border: 2px solid var(--primary-accent);
 }
 
@@ -452,14 +478,14 @@ input.error:focus{
 	border: 2px solid var(--primary-accent);
 }
 
-input[disabled]{
+input[disabled], textarea[disabled], select[disabled]{
 	background-color: var(--primary-background-lightest);
 	border: 2px solid var(--primary-background-light);
 	cursor: not-allowed;
 	padding-left: .5rem;
 }
 
-input[disabled]::placeholder{
+input[disabled]::placeholder, textarea[disabled]::placeholder{
 	color: var(--primary-background-light);
 }
 
@@ -478,7 +504,7 @@ textarea{
 	Information Cards
 
 ========================================================================*/
-*[class*="information-card-"]{
+[class*="information-card-"]{
 	background-color: var(--primary-background-lightest);
 	border-radius: 3rem;
 	box-shadow: 0 .2rem 0 var(--primary-background-light);
@@ -486,32 +512,54 @@ textarea{
 	padding: var(--margin-standard);
 }
 
-*[class*="information-card-"] img{
+[class*="information-card-"] img{
 	border: 2px solid var(--text-color-light);
 	border-radius: 2rem 0 0 0;
 	margin: 0 var(--margin-standard) 0 0;
 	width: 20rem;
 }
 
-*[class*="information-card-"] section{
+[class*="information-card-"] section, [class*="information-card-"] article{
 	margin: 0;
 }
 
-*[class*="information-card-"] p{
+[class*="information-card-"] p{
 	margin: 0;
 }
+
+svg{
+	height: 10rem;
+	position: absolute;
+	top: -1rem;
+	right: -1rem;
+	width: 10rem;
+
+	filter: drop-shadow( 0 .2rem 0 var(--primary-background-light));
+}
+
+text{
+	font-family: var(--accent-font);
+	font-size: 7rem;
+}
+
+.featured{
+	fill: var(--secondary-accent);
+}
+
 .information-card-article{
 	align-items: center;
 	display: flex;
 	flex-direction: column;
+	position: relative;
 }
 
-.information-card-article > section:first-of-type{
+.information-card-article > div:first-of-type{
 	align-items: flex-end;
 	border-bottom: 2px solid var(--primary-accent);
 	box-shadow: 0 2px 0 var(--primary-background-lighter);
 	display: flex;
 	justify-content: flex-start;
+	margin-bottom: .5rem;
 	padding-bottom: var(--margin-standard);
 	width: 100%;
 }
@@ -522,16 +570,16 @@ textarea{
 }
 
 .information-card-profile p{
-	word-wrap: break-word;
+	word-break: break-all;
 }
 
 article.information-card-profile img{
 	border-radius: 2rem 0 0 2rem;
 }
 
-@media all and (max-width: 600px){
+@media all and (max-width: 500px){
 
-	*[class*="information-card-"] img{
+	[class*="information-card-"] img{
 		border-radius: 2rem 2rem 0 0;
 		margin: 0 0 var(--margin-standard) 0;
 		width: 20rem;
@@ -543,7 +591,7 @@ article.information-card-profile img{
 		width: 20rem;
 	}
 
-	.information-card-article > section:first-of-type{
+	.information-card-article > div:first-of-type{
 		flex-direction: column;
 		align-items: center;
 	}
@@ -576,6 +624,13 @@ article.information-card-profile img{
 .notification:hover{
 	animation: breathe .5s ease-out .5s;
 }
+.icon{
+	fill:none;
+	stroke-linecap:round;
+	stroke-miterlimit:10;
+	stroke-width:60px;
+}
+
 .error h3{
 	border-left: 2px solid var(--error-color);
 	color: var(--error-color);
@@ -589,30 +644,7 @@ article.information-card-profile img{
 .error svg path{
 	fill: var(--error-color);
 }
-.warning h3{
-	border-left: 2px solid var(--warning-color);
-	color: var(--warning-color);
-	margin-left: 1rem;
-	padding-left: 1rem;
-}
-.warning svg line{
-	stroke: var(--warning-color);
-}
-.warning svg path{
-	fill: var(--warning-color);
-}
-.success h3{
-	border-left: 2px solid var(--success-color);
-	color: var(--success-color);
-	margin-left: 1rem;
-	padding-left: 1rem;
-}
-.success svg line{
-	stroke: var(--success-color);
-}
-.success svg path{
-	fill: var(--success-color);
-}
+
 .information h3{
 	border-left: 2px solid var(--secondary-accent);
 	color: var(--secondary-accent);
@@ -626,6 +658,31 @@ article.information-card-profile img{
 	fill: var(--secondary-accent);
 }
 
+.success h3{
+	border-left: 2px solid var(--success-color);
+	color: var(--success-color);
+	margin-left: 1rem;
+	padding-left: 1rem;
+}
+.success svg line{
+	stroke: var(--success-color);
+}
+.success svg path{
+	fill: var(--success-color);
+}
+
+.warning h3{
+	border-left: 2px solid var(--warning-color);
+	color: var(--warning-color);
+	margin-left: 1rem;
+	padding-left: 1rem;
+}
+.warning svg line{
+	stroke: var(--warning-color);
+}
+.warning svg path{
+	fill: var(--warning-color);
+}
 /*========================================================================
 
 	Examples
@@ -698,4 +755,14 @@ section figure{
 	font-family: var(--accent-font);
 	font-weight: 600;
 	font-style: italic;
+}
+
+[class*="layout-"] img{
+	border: 2px solid var(--text-color-light);
+	margin: 1rem;
+	width: 40rem;
+}
+
+[class*="layout-"] img:hover{
+	border: 2px solid var(--secondary-accent);
 }
